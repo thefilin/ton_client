@@ -326,9 +326,7 @@ class TonlibClientBase:
         :param message:
         :return:
         """
-        if valid_until.tzname() is None:
-            valid_until = datetime.replace(tzinfo=timezone.utc)
-        valid_until_ts = valid_until.timestamp()
+        valid_until_ts = int(valid_until.timestamp())
 
         data = {
             '@type': 'wallet.sendGrams',
